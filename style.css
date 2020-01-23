@@ -7,9 +7,12 @@
     font-family: 'Bangers', cursive;
 }
 
+.shaking {
+    animation: shake .4s;
+}
+
 body {
-    height: 100vh;
-    background: linear-gradient(to right, #06beb6, #48b1bf);
+    background: linear-gradient(to right, #06beb6, #1d95a5);
 }
 
 h1 {
@@ -18,9 +21,14 @@ h1 {
     text-align: center;
 }
 
+img {
+    border-radius: 20px;
+}
+
 div.display {
     display: flex;
     justify-content: center;
+    height: 30vh;
 }
 
 div.display div {
@@ -30,12 +38,12 @@ div.display div {
 .middle div.versus {
     text-align: center;
     font-size: 60px;
-    align-self: center;
     margin-top: 70px;
 }
 
 .middle div.result {
     text-align: center;
+    width: 100px;
     font-size: 30px;
     margin-top: 70px;
 }
@@ -57,6 +65,7 @@ div.options button {
     border-radius: 50%;
     cursor: pointer;
     outline: none;
+    transition: .2s;
 }
 
 div.options button:hover {
@@ -64,13 +73,124 @@ div.options button:hover {
 }
 
 div.score-table {
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin: 30px auto;
+    width: 50vw;
+    margin: 30px 0;
     font-size: 50px;
+    text-align: center;
 }
 
 div.score-table div {
     margin: 15px 0;
+}
+
+@media (max-width:800px) {
+    h1 {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    div.display {
+        height: 20vh;
+    }
+
+    div.display div {
+        margin: 0;
+    }
+
+    .middle div.versus {
+        font-size: 35px;
+        margin-top: 70px;
+    }
+
+    .middle div.result {
+        font-size: 25px;
+        margin-top: 50px;
+    }
+
+    img {
+        height: 200px;
+    }
+
+    div.options {
+        margin-top: 150px;
+    }
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .middle div.versus {
+        font-size: 30px;
+        margin-top: 40px;
+    }
+
+    .middle div.result {
+        font-size: 25px;
+        margin-top: 40px;
+    }
+
+    img {
+        height: 100px;
+    }
+
+    div.options {
+        margin-top: 50px;
+    }
+
+    div.score-table {
+        width: 100vw;
+        margin: 10px 0;
+        font-size: 40px;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
 }

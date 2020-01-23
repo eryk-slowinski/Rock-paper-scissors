@@ -31,6 +31,7 @@ const playGame = event => {
     playerHand.src = `img/${event.target.id}.png`;
     checkWin(aiPick, playerPick);
     renderScore();
+    shaking();
 }
 
 const checkWin = (ai, player) => {
@@ -57,6 +58,15 @@ const renderScore = () => {
     gamesWon.textContent = `Games won: ${gameScore.gamesWon}`;
     gamesLost.textContent = `Games lost: ${gameScore.gamesLost}`;
     draws.textContent = `Draws: ${gameScore.draws}`;
+}
+
+const shaking = () => {
+    playerHand.classList.add('shaking');
+    aiHand.classList.add('shaking');
+    setTimeout(() => {
+        playerHand.classList.remove('shaking');
+        aiHand.classList.remove('shaking');
+    }, 400);
 }
 
 rockButton.addEventListener('click', playGame);
