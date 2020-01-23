@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap&subset=latin-ext');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bangers', cursive;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(to right, #06beb6, #48b1bf);
+}
+
+h1 {
+    margin: 20px 0 70px 0;
+    font-size: 80px;
+    text-align: center;
+}
+
+div.display {
+    display: flex;
+    justify-content: center;
+}
+
+div.display div {
+    margin: 0 50px;
+}
+
+.middle div.versus {
+    text-align: center;
+    font-size: 60px;
+    align-self: center;
+    margin-top: 70px;
+}
+
+.middle div.result {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 70px;
+}
+
+div.options {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+div.options button {
+    margin: 0 20px;
+    height: 70px;
+    width: 70px;
+    font-size: 40px;
+    color: rgb(19, 17, 17);
+    background-color: rgb(55, 0, 253, .4);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+div.options button:hover {
+    font-size: 50px;
+}
+
+div.score-table {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 30px auto;
+    font-size: 50px;
+}
+
+div.score-table div {
+    margin: 15px 0;
+}
