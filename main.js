@@ -3,6 +3,11 @@ const aiHand = document.querySelector('.ai');
 const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
+const result = document.querySelector('.result');
+const gamesTotal = document.querySelector('.games-total');
+const gamesWon = document.querySelector('.games-won');
+const gamesLost = document.querySelector('.games-lost');
+const draws = document.querySelector('.draws');
 const gameScore = {
     games: 0,
     gamesWon: 0,
@@ -25,24 +30,34 @@ const playGame = event => {
     const playerPick = event.target.id;
     playerHand.src = `img/${event.target.id}.png`;
     checkWin(aiPick, playerPick);
+    renderScore();
 }
 
 const checkWin = (ai, player) => {
     if (ai === 'rock') {
-        if (player === 'rock') console.log('draw');
-        if (player === 'paper') console.log('player wins');
-        if (player === 'scissors') console.log('ai wins');
+        if (player === 'rock') result.textContent = 'DRAW';
+        if (player === 'paper') result.textContent = 'WIN!';
+        if (player === 'scissors') result.textContent = 'LOST...';
     } else if (ai === 'paper') {
-        if (player === 'paper') console.log('draw');
-        if (player === 'scissors') console.log('player wins');
-        if (player === 'rock') console.log('ai wins');
+        if (player === 'paper') result.textContent = 'DRAW';
+        if (player === 'scissors') result.textContent = 'WIN!';
+        if (player === 'rock') result.textContent = 'LOST...';
     } else if (ai === 'scissors') {
-        if (player === 'scissors') console.log('draw');
-        if (player === 'rock') console.log('player wins');
-        if (player === 'paper') console.log('ai wins');
+        if (player === 'scissors') result.textContent = 'DRAW';
+        if (player === 'rock') result.textContent = 'WIN!';
+        if (player === 'paper') result.textContent = 'LOST...';
     }
 }
 
+const renderScore = () => {
+    gameScore.games++;
+    const whoWon = result.textContent;
+    (whoWon === 'DRAW') ? gameScore.draws++: (whoWon === 'LOST...') ? gameScore.gamesLost++ : gameScore.gamesWon++;
+    gamesTotal.textContent = `Games: ${gameScore.games}`;
+    gamesWon.textContent = `Games won: ${gameScore.gamesWon}`;
+    gamesLost.textContent = `Games lost: ${gameScore.gamesLost}`;
+    draws.textContent = `Draws: ${gameScore.draws}`;
+}
 
 rockButton.addEventListener('click', playGame);
 paperButton.addEventListener('click', playGame);
