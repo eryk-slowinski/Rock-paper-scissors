@@ -64,8 +64,11 @@ div.options button {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    outline: none;
     transition: .2s;
+}
+
+div.options button:focus {
+    outline: none;
 }
 
 div.options button:hover {
